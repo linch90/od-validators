@@ -1,0 +1,9 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.prod.json",
+  "compilerOptions": {
+    "paths": {
+      "@linch90/od-validators": ["projects/od-validators/src/public-api.ts"]
+    }
+  }
+}
