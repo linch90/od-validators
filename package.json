@@ -1,13 +1,6 @@
 {
   "name": "@linch90/od-validators",
-  "version": "1.0.0",
-  "publishConfig": {
-    "@linch90:registry": "https://npm.pkg.github.com"
-  },
-  "repository": {
-    "url": "https://github.com/linch90/od-validators.git",
-    "type": "git"
-  },
+  "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",

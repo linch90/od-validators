@@ -7,7 +7,7 @@
     "url": "https://github.com/linch90/od-validators.git"
   },
   "publishConfig": {
-    "@linch90:registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "author": {
     "name": "linch90;晗林科技",
