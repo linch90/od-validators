@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve dev-app --open",
-    "build": "ng build od-validators --configuration production",
+    "build": "ng build @linch90/od-validators --configuration production",
     "build:app": "npm run symlink:copy -- --no-watch && ng build dev-app --configuration production",
     "symlink:copy": "symlink copy --angular --packages @linch90/od-validators --configuration production",
     "test": "ng test",
