@@ -1,6 +1,7 @@
 {
   "name": "@linch90/od-validators",
   "version": "1.1.0",
+  "license": "MIT",
   "homepage": "https://www.unihanlin.com",
   "repository": {
     "type": "git",
