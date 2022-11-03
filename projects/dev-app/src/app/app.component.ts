@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   atLeastOne,
   atLeastOneConditionally,
+  conditionalValidator,
   requiredConditionally,
 } from '@linch90/od-validators';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -50,7 +51,15 @@ export class AppComponent {
         hasTakeoffWeightLimit: [hasTakeoffWeightLimit ?? false, []],
         mtowInKg: [mtowInKg ?? null, []],
         hasLandingWeightLimit: [hasLandingWeightLimit ?? false, []],
-        mlwInKg: [mlwInKg ?? null, []],
+        mlwInKg: [
+          mlwInKg ?? null,
+          [
+            conditionalValidator(
+              () => this.form.get('hasLandingWeightLimit').value,
+              Validators.required
+            ),
+          ],
+        ],
         takeoffSurfaceConditionLimit: [
           takeoffSurfaceConditionLimit ?? null,
           [],
@@ -95,7 +104,6 @@ export class AppComponent {
             ]
           ),
           requiredConditionally('hasTakeoffWeightLimit', true, ['mtowInKg']),
-          requiredConditionally('hasLandingWeightLimit', true, ['mlwInKg']),
         ],
       }
     );

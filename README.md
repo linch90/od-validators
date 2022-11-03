@@ -1,4 +1,4 @@
-Provide complex validators for angular form.
+Provide additional validators for angular form.
 
 1. atLeastOne, at least one of the `controls` should satisfy the provided `validator`.
 
@@ -39,6 +39,13 @@ requiredConditionally2 =
   ) => ...
 ```
 
+5. conditionalValidator, apply `validator` if `predicate` return true.
+
+```typescript
+conditionalValidator =
+  (predicate: () => boolean, validator: ValidatorFn) => ...
+```
+
 ### Examples:
 
 ```typescript
@@ -51,7 +58,15 @@ let form = this.fb.group(
     hasTakeoffWeightLimit: [hasTakeoffWeightLimit ?? false, []],
     mtowInKg: [mtowInKg ?? null, []],
     hasLandingWeightLimit: [hasLandingWeightLimit ?? false, []],
-    mlwInKg: [mlwInKg ?? null, []],
+    mlwInKg: [
+      mlwInKg ?? null,
+      [
+        conditionalValidator(
+          () => form.get("hasLandingWeightLimit").value,
+          Validators.required
+        ),
+      ],
+    ],
     takeoffSurfaceConditionLimit: [takeoffSurfaceConditionLimit ?? null, []],
     takeoffTailWindComponentLimitInKt: [
       takeoffTailWindComponentLimitInKt ?? null,
@@ -84,7 +99,6 @@ let form = this.fb.group(
         ["landingSurfaceConditionLimit", "landingTailWindComponentLimitInKt"]
       ),
       requiredConditionally("hasTakeoffWeightLimit", true, ["mtowInKg"]),
-      requiredConditionally("hasLandingWeightLimit", true, ["mlwInKg"]),
     ],
   }
 );
