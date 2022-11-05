@@ -15,6 +15,16 @@
     "email": "chuzhilin@unihanlin.com"
   },
   "description": "Provide complex validators for angular form",
+  "keywords": [
+    "angular",
+    "ng",
+    "validators",
+    "form",
+    "form control",
+    "form group",
+    "od",
+    "library"
+  ],
   "peerDependencies": {
     "@angular/common": "^14.2.0",
     "@angular/core": "^14.2.0"
