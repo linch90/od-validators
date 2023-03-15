@@ -51,15 +51,7 @@ export class AppComponent {
         hasTakeoffWeightLimit: [hasTakeoffWeightLimit ?? false, []],
         mtowInKg: [mtowInKg ?? null, []],
         hasLandingWeightLimit: [hasLandingWeightLimit ?? false, []],
-        mlwInKg: [
-          mlwInKg ?? null,
-          [
-            conditionalValidator(
-              () => this.form.get('hasLandingWeightLimit').value,
-              Validators.required
-            ),
-          ],
-        ],
+        mlwInKg: [mlwInKg ?? null, []],
         takeoffSurfaceConditionLimit: [
           takeoffSurfaceConditionLimit ?? null,
           [],
@@ -104,6 +96,7 @@ export class AppComponent {
             ]
           ),
           requiredConditionally('hasTakeoffWeightLimit', true, ['mtowInKg']),
+          requiredConditionally('hasLandingWeightLimit', true, ['mlwInKg']),
         ],
       }
     );
@@ -112,5 +105,9 @@ export class AppComponent {
   open(content: any) {
     this.buildForm();
     this.modalService.open(content, { size: 'lg' });
+  }
+
+  printForm() {
+    console.log('form', this.form);
   }
 }
