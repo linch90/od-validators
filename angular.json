@@ -58,7 +58,14 @@
               "projects/dev-app/src/favicon.ico",
               "projects/dev-app/src/assets"
             ],
-            "styles": ["projects/dev-app/src/styles.scss"],
+            "styles": [
+              {
+                "input": "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                "inject": true,
+                "bundleName": "bootstrap-ltr.min"
+              },
+              "projects/dev-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {

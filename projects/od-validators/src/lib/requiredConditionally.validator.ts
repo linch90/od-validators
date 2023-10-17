@@ -21,6 +21,13 @@ export const requiredConditionally =
       group.controls &&
       controls.every((k) => !Validators.required(group.controls[k]));
 
+    if (!required) {
+      controls.forEach((k) => {
+        const control = group.controls[k];
+        control.setErrors({ required: true });
+      });
+    }
+
     return required
       ? null
       : {
@@ -54,6 +61,13 @@ export const requiredConditionally2 =
       group &&
       group.controls &&
       controls.every((k) => !Validators.required(group.controls[k]));
+
+    if (!required) {
+      controls.forEach((k) => {
+        const control = group.controls[k];
+        control.setErrors({ required: true });
+      });
+    }
 
     return required
       ? null

@@ -645,6 +645,9 @@
       <button class="btn btn-primary" [disabled]="form?.invalid">
         {{ form?.invalid ? "invalid form" : "valid form" }}
       </button>
+      <button class="btn btn-secondary" (click)="printForm()">
+        print form
+      </button>
       <button
         type="button"
         class="btn btn-danger"
