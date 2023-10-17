@@ -1,6 +1,6 @@
 {
   "name": "@linch90/od-validators",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "license": "MIT",
   "homepage": "https://www.unihanlin.com",
   "repository": {
@@ -26,10 +26,11 @@
     "library"
   ],
   "peerDependencies": {
-    "@angular/common": ">=15",
-    "@angular/core": ">=15"
+    "@angular/common": ">=16",
+    "@angular/core": ">=16",
+    "@ng-bootstrap/ng-bootstrap": ">=15"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.1.0"
   }
 }
